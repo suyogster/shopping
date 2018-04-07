@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Route::get('/customer/show/{id}',['as'=>'customer.show','uses'=>'CustomerController@show']);
+Route::get('/customer/create',['as'=>'customer.create','uses'=>'CustomerController@create']);
+Route::post('/customer/store',['as'=>'customer.store','uses'=>'CustomerController@store']);
