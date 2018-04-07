@@ -16,7 +16,7 @@ class CreateShipmentItemsTable extends Migration
         Schema::create('shipment_items', function (Blueprint $table) {
             $table->integer('shipment_id')->unsigned();
             $table->integer('order_item_id')->unsigned();
-
+            $table->primary(array('shipment_id','order_item_id'));
             $table->timestamps();
         });
 
@@ -24,6 +24,7 @@ class CreateShipmentItemsTable extends Migration
 
             $table->foreign('shipment_id')->references('shipment_id')->on('shipments');
             $table->foreign('order_item_id')->references('order_item_id')->on('order_items');
+
         });
 
     }
